@@ -25,6 +25,7 @@
     "execp": "^0.0.1",
     "express": "^4.19.2",
     "fs": "^0.0.1-security",
+    "ipfs-http-client": "^56.0.2",
     "jsonwebtoken": "^9.0.2",
     "localforage": "^1.10.0",
     "lucide-react": "^0.356.0",

@@ -1,0 +1,11 @@
+# Use Node.js as the base image
+FROM node:18
+
+# Install Ganache CLI
+RUN npm install -g ganache-cli
+
+# Expose Ganache port
+EXPOSE 8545
+
+# Run Ganache CLI with default options
+CMD ["ganache-cli", "--host", "0.0.0.0"]

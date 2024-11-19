@@ -6,6 +6,9 @@ const workoutRoutes = require("./routes/workouts.js");
 const usersRoutes = require("./routes/users.js");
 const transactionsRoutes = require("./routes/Transactions.js");
 const userPortfolio = require("./routes/userPortfolio.js");
+const nftRoutes = require('./routes/nftRoutes.js');
+const walletLogsRoutes = require('./routes/walletLogsRoutes.js');
+const ipfsRoutes = require('./routes/ipfsRoutes.js');
 const mongoose = require("mongoose");
 const cors = require("cors");
 
@@ -34,6 +37,11 @@ app.use("/api/workouts/", workoutRoutes);
 app.use("/api/portfolio/", userPortfolio);
 app.use("/api/transactions/", transactionsRoutes);
 app.use("/api/users/", usersRoutes);
+app.use('/api/nfts/', nftRoutes);
+app.use('/api/wallet-logs/', walletLogsRoutes);
+app.use('/api/ipfs/', ipfsRoutes)
+
+console.log('process.env.MONG_URI',process.env.MONG_URI);
 
 //connect to db et lancement du server
 mongoose
@@ -43,7 +51,7 @@ mongoose
     console.log(`connected to db`);
   })
   .catch((error) => {
-    // console.log(error);
+    console.log("db error",error);
   });
 
 app.listen(process.env.PORT, () => {
